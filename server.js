@@ -15,7 +15,7 @@
    const port = argv.port; 
 
    if (port == undefined){
-   port = 3000;
+    port = 3000;
    }
     
 
@@ -32,7 +32,7 @@
 
 fs.readFile('./public/index.html', function(err, data){
     if (err) {
-    console.error(err)
+      console.error(err)
     return
   }
     const server = http.createServer((req, res) => {
