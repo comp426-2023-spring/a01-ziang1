@@ -8,6 +8,16 @@
 
 // Define a const `port` using the argument from the command line. 
 // Make this const default to port 3000 if there is no argument given for `--port`.
+   const http = require('http')
+   const fs = require('fs')
+   const minimist = require('minimist')
+   const argv = minimist(process.argv.slice(2));
+   const port = argv.port; 
+
+   if (port == undefined){
+   port = 3000;
+   }
+    
 
 // Use the fs module to create an arrow function using `fs.readFile`.
 // Use the documentation for the Node.js `fs` module. 
@@ -20,6 +30,23 @@
 
 
 
+fs.readFile('./public/index.html', function(err, data){
+    if (err) {
+    console.error(err)
+    return
+  }
+    const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html')
+    res.end(data);
+    }).listen(port, () => {
+
+    console.log(`Server listening on port ${port}`);
+            
+    })
+          
+});
+ 
 
 // Define a const `server` as an arrow function using http.createServer. 
 // Use the documentation for the node.js http module. 
@@ -30,12 +57,10 @@
 
 
 
-
-
 // Start the `server` const listening on the port defined by argument in your `port` const. 
 // Put the exact message `Server listening on port ${port}` on the console log. 
 
-
+ 
 
 
 // That's it! You're all done!
