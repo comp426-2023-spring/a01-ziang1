@@ -1,7 +1,7 @@
 {
   "name": "a01-final",
   "version": "0.0.1",
-  "description": "a01-package thin",
+  "description": "a01-package thi",
   "main": "server.js",
   "scripts": {
     "test": "node server.js --port=5555",
